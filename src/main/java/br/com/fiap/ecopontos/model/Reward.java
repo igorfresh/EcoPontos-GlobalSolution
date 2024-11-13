@@ -1,13 +1,14 @@
 package br.com.fiap.ecopontos.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Data
 @Entity
+@Table(name = "rewards")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +17,12 @@ public class Reward {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
-    public String description;
-    public int necessaryPoints;
+
+    @NotBlank(message = "{rewards.description.notblank}")
+    private String description;
+
+    @Min(value = 1, message = "{rewards.necessaryPoints.min}")
+    @Max(value = 10000, message = "{rewards.necessaryPoints.max}")
+    private int necessaryPoints;
 
 }
