@@ -23,6 +23,6 @@ public class Reward {
 
     @Min(value = 1, message = "{rewards.necessaryPoints.min}")
     @Max(value = 10000, message = "{rewards.necessaryPoints.max}")
-    private int necessaryPoints;
+    private Integer necessaryPoints;
 
 }
