@@ -39,6 +39,6 @@ public class TaskRegistration {
     private int duration;
 
     @Min(value = 0, message = "{taskRegistration.totalPoints.min}")
-    private int totalPoints;
+    private Integer totalPoints;
 
 }
