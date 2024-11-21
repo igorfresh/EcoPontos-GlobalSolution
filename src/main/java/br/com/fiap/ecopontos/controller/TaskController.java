@@ -33,7 +33,7 @@ public class TaskController {
     @GetMapping
     public Page<Task> index(
             @RequestParam(required = false) String type,
-            @PageableDefault(size = 3, sort = "necessaryPoints", direction = Sort.Direction.ASC) Pageable pageable
+            @PageableDefault(size = 3, sort = "type", direction = Sort.Direction.ASC) Pageable pageable
     ){
         if (type != null){
             return taskRepository.findByType(type, pageable);

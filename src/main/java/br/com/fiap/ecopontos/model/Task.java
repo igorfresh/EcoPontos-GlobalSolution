@@ -25,4 +25,8 @@ public class Task {
 
     @NotBlank(message = "{tasks.description.notblank}")
     private String description;
+
+    public Task(Long id) {
+        this.id = id;
+    }
 }
