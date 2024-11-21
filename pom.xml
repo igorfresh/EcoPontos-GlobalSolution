@@ -40,11 +40,10 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
         </dependency>
- <!--       <dependency>
+        <!--<dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
-        </dependency>
--->
+        </dependency> -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -95,24 +94,22 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
-            <!--    <dependency>
-                  <groupId>org.springframework.ai</groupId>
-                  <artifactId>spring-ai-bom</artifactId>
-                  <version>${spring-ai.version}</version>
-                  <type>pom</type>
-                  <scope>import</scope>
-              </dependency>
-              -->
-              <dependency>
-                  <groupId>com.vaadin</groupId>
-                  <artifactId>vaadin-bom</artifactId>
-                  <version>${vaadin.version}</version>
-                  <type>pom</type>
-                  <scope>import</scope>
-              </dependency>
-          </dependencies>
-      </dependencyManagement>
-
+            <!--<dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency> -->
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
       <build>
           <plugins>
               <plugin>
