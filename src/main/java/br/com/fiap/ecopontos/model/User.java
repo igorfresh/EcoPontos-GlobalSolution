@@ -39,4 +39,7 @@ public class User {
     @Min(value = 0, message = "{user.points.min}")  // Pontos não podem ser negativos
     private int points;
 
+    public User(Long id) {
+        this.id = id;
+    }
 }
