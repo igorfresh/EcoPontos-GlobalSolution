@@ -37,9 +37,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@CacheConfig(cacheNames = "clientes")
-@RequestMapping("client")
-@Tag(name = "clientes", description = "Clientes cadastrados")
+@RequestMapping("user")
 public class UserController {
 
     Logger log = LoggerFactory.getLogger(getClass());
@@ -55,11 +53,6 @@ public class UserController {
     }
 
     @GetMapping
-    @Cacheable
-    @Operation(
-            summary = "Listar Clientes",
-            description = "Retorna uma página com todas os clientes cadastrados ordenada por ordem alfabética"
-    )
     public Page<User> index(
             @RequestParam(required = false) String name,
             @PageableDefault(size = 3, sort = "name", direction = Direction.ASC ) Pageable pageable
@@ -73,11 +66,6 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    @CacheEvict(allEntries = true)
-    @Operation(
-            summary = "Cadastrar cliente",
-            description = "Cadastra um novo cliente com os dados do corpo da requisição."
-    )
     public User create(@RequestBody @Valid User user) {
         log.info("cadastrando cliente {}", user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -85,10 +73,6 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    @Operation(
-            summary = "Listar cliente por ID",
-            description = "Retorna um determinado cliente correspondente com o ID selecionado."
-    )
     public ResponseEntity<User> show(@PathVariable Long id) {
         log.info("buscando cliente por id {}", id);
         return userRepository
@@ -99,11 +83,6 @@ public class UserController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(NO_CONTENT)
-    @CacheEvict(allEntries = true)
-    @Operation(
-            summary = "Deletar cliente",
-            description = "Deleta um determinado cliente correspondente com o ID selecionado."
-    )
     public void destroy(@PathVariable Long id) {
         log.info("Apagando cadastro de cliente");
         verifyExistingClient(id);
@@ -112,11 +91,6 @@ public class UserController {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
-    @Operation(
-            summary = "Atualizar cliente",
-            description = "Atualiza um determinado cliente correspondente com o ID selecionado."
-    )
     public User update (@PathVariable Long id, @RequestBody User user) {
         log.info("atualizando cliente com id {} para {}", id, user);
 

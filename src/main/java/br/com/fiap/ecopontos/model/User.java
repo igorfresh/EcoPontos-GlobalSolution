@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -29,11 +30,11 @@ public class User {
     private String email;
 
     @NotBlank(message = "{user.password.notblank}")
-    @Size(min = 6, max = 20, message = "{user.password.size}")  // Senha entre 6 e 20 caracteres
+    @Size(min = 6, max = 255, message = "{user.password.size}")  // Senha entre 6 e 20 caracteres
     private String password;
 
     @NotNull(message = "{user.registerDate.notnull}")
-    private Date register_date;
+    private LocalDate registerDate;
 
     @Min(value = 0, message = "{user.points.min}")  // Pontos não podem ser negativos
     private int points;
