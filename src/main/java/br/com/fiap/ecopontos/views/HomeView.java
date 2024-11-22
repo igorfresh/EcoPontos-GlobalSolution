@@ -36,8 +36,13 @@ public class HomeView extends VerticalLayout {
             }
         });
 
+        // Botão para navegar para o Chat
+        Button goToChatButton = new Button("Ir para o Chat", event ->
+                getUI().ifPresent(ui -> ui.navigate("chat"))
+        );
+
         // Adiciona os botões à view
-        add(loadTasksButton, loadRewardsButton);
+        add(loadTasksButton, loadRewardsButton, goToChatButton);
     }
 
     private List<Task> fetchTasks() {
@@ -84,7 +89,6 @@ public class HomeView extends VerticalLayout {
         dialog.open();
     }
 
-    // Classe interna para mapear a resposta da API de Tasks
     private static class TaskResponse {
         private List<Task> content;
 
@@ -97,7 +101,6 @@ public class HomeView extends VerticalLayout {
         }
     }
 
-    // Classe interna para mapear a resposta da API de Rewards
     private static class RewardResponse {
         private List<Reward> content;
 

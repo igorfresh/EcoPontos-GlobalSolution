@@ -25,9 +25,9 @@ public class TaskRegistration {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
 
-//    @ManyToOne
-//    @NotNull(message = "{taskRegistration.user.notnull}")
-//    public User user;
+    @ManyToOne
+    @NotNull(message = "{taskRegistration.user.notnull}")
+    public User user;
 
     @ManyToOne
     @NotNull(message = "{taskRegistration.task.notnull}")

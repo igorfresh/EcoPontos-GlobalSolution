@@ -40,7 +40,12 @@ public class ChatView extends VerticalLayout {
         inputLayout.setWidthFull();
         inputLayout.expand(userInput);
 
-        add(chatHistory, inputLayout);
+        // Botão para voltar para a Home
+        Button goToHomeButton = new Button("Voltar para Home", event ->
+                getUI().ifPresent(ui -> ui.navigate(""))
+        );
+
+        add(chatHistory, inputLayout, goToHomeButton);
     }
 
     private void sendMessage() {
@@ -58,4 +63,3 @@ public class ChatView extends VerticalLayout {
         chatHistory.setValue(chatHistory.getValue() + "\nIA: " + aiResponse);
     }
 }
-
