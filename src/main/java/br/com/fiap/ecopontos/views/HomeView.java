@@ -15,8 +15,8 @@ import java.util.List;
 @Route("")
 public class HomeView extends VerticalLayout {
 
-    private static final String TASK_URL = "http://localhost:8080/task";
-    private static final String REWARD_URL = "http://localhost:8080/reward";
+    private static final String TASK_URL = "https://ecopontos-globalsolution-production.up.railway.app/task";
+    private static final String REWARD_URL = "https://ecopontos-globalsolution-production.up.railway.app/reward";
 
     public HomeView() {
         add(new H1("Sistema de Tarefas e Recompensas"));
